@@ -1,0 +1,8 @@
+[Unit]
+Description=Syncyomi Container
+
+[Container]
+Image=ghcr.io/syncyomi/syncyomi:latest
+ContainerName=syncyomi
+PublishPort=8282:8282
+Volume=%h/config:/config:z
