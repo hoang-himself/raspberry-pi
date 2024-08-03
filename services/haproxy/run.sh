@@ -5,7 +5,10 @@ HAPROXY_CONFIG_DIR=${HAPROXY_CONFIG_DIR:-'/usr/local/etc/haproxy'}
 HAPROXY_PODMAN_CONTAINER=${HAPROXY_PODMAN_CONTAINER:-'haproxy'}
 CERT_DIR=${CERT_DIR:-"$HOME/porkbun/certbun/certs"}
 
-podman container run -d --replace -p 80:80 -p 443:443 --name "$HAPROXY_PODMAN_CONTAINER" \
+podman container run -d --replace \
+  --name "$HAPROXY_PODMAN_CONTAINER" \
+  `#-p 80:80 -p 443:443` \
+  --pod rpi \
   -v "$PWD/haproxy.cfg:$HAPROXY_CONFIG_DIR/haproxy.cfg:z" \
   -v "$CERT_DIR/domain.cert.pem:$HAPROXY_CONFIG_DIR/certs/site.pem:z" \
   -v "$CERT_DIR/private.key.pem:$HAPROXY_CONFIG_DIR/certs/site.pem.key:z" \
