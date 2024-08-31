@@ -1,0 +1,19 @@
+[Unit]
+Description=WireGuard Container
+
+[Container]
+Image=lscr.io/linuxserver/wireguard:latest
+Replace=true
+Name=wireguard
+PublishPort=51820:51820/udp
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=UTC
+Environment=SERVERURL=auto
+Environment=SERVERPORT=51820
+Environment=PEERS=3
+Environment=PEERDNS=auto
+Environment=INTERNAL_SUBNET=192.168.0.0
+Volume=/opt/wireguard-server/config:/config:z
+Volume=/lib/modules:/lib/modules:z
+Sysctl=net.ipv4.conf.all.src_valid_mark=1
