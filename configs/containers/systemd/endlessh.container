@@ -1,0 +1,8 @@
+[Unit]
+Description=Endlessh Container
+
+[Container]
+Image=docker.io/shizunge/endlessh-go:latest
+ContainerName=endlessh
+PublishPort=2112:2112
+PublishPort=22:2222
