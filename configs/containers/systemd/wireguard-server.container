@@ -3,6 +3,7 @@ Description=WireGuard Server Container
 
 [Container]
 Image=lscr.io/linuxserver/wireguard:latest
+AutoUpdate=registry
 Pod=wireguard-server.pod
 Environment=SERVERURL=rpi4b.hoang-himself.dev
 Environment=SERVERPORT=51820

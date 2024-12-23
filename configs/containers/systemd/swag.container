@@ -3,6 +3,7 @@ Description=Swag Container
 
 [Container]
 Image=lscr.io/linuxserver/swag:latest
+AutoUpdate=registry
 Pod=swag.pod
 Environment=URL=hoang-himself.dev
 Environment=SUBDOMAINS=rpi4b
